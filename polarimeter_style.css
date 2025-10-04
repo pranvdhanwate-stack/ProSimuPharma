@@ -9,6 +9,10 @@
     --light-color: #f1c40f;
 }
 
+.advanced-sim-main {
+    padding: 2.5rem 1rem;
+}
+
 .polarimeter-main-container {
     max-width: 1400px;
     margin: auto;
@@ -53,7 +57,6 @@ hr { border: none; border-top: 1px solid var(--border-dark); margin: 25px 0; }
     grid-template-columns: 1fr;
     gap: 20px;
     align-items: center;
-    height: auto;
 }
 
 #molecule-container {
@@ -62,9 +65,12 @@ hr { border: none; border-top: 1px solid var(--border-dark); margin: 25px 0; }
     height: 100%;
 }
 
+/* --- Mobile-first styles for the viewer --- */
 #molecule-viewer {
-    height: 300px;
-    background-color: #000; border-radius: 8px; border: 1px solid var(--border-dark);
+    height: 300px; /* Fixed height for mobile */
+    background-color: #000;
+    border-radius: 8px;
+    border: 1px solid var(--border-dark);
     position: relative;
 }
 
@@ -72,8 +78,8 @@ hr { border: none; border-top: 1px solid var(--border-dark); margin: 25px 0; }
     display: flex;
     gap: 20px;
     margin-top: 20px;
-    height: auto;
     flex-direction: column;
+    align-items: center; /* Center items on mobile */
 }
 
 #structure-2d-viewer {
@@ -83,7 +89,6 @@ hr { border: none; border-top: 1px solid var(--border-dark); margin: 25px 0; }
     border: 1px solid var(--border-dark);
     border-radius: 8px;
     padding: 5px;
-    margin: 0 auto;
 }
 #structure-2d-viewer img {
     width: 100%;
@@ -102,8 +107,11 @@ hr { border: none; border-top: 1px solid var(--border-dark); margin: 25px 0; }
 #pubchem-link { color: var(--primary-glow); text-decoration: none; font-weight: bold; font-size: 0.9em; display: inline-block; margin-top: 10px; }
 
 #polarimeter-animation-svg {
-    width: 100%; height: 250px;
-    background-color: #000; border-radius: 8px; border: 1px solid var(--border-dark);
+    width: 100%;
+    height: 250px;
+    background-color: #000;
+    border-radius: 8px;
+    border: 1px solid var(--border-dark);
 }
 
 #result-panel {
@@ -123,22 +131,26 @@ hr { border: none; border-top: 1px solid var(--border-dark); margin: 25px 0; }
 #light-beam { fill: var(--light-color); fill-opacity: 0.5; stroke: var(--light-color); stroke-width: 1.5; transform-origin: center; transform-box: fill-box; }
 #beam-mask-rect { transition: width 3s ease-in-out; }
 
+/* --- Styles for Desktop --- */
 @media (min-width: 992px) {
     .polarimeter-main-container {
         grid-template-columns: 320px 1fr;
     }
     .simulation-view {
         grid-template-columns: 3fr 2fr;
-        height: 500px;
+        height: 500px; /* Define height for the container */
     }
+    /* --- CORRECTION --- */
     #molecule-viewer {
-        height: auto;
+        flex-grow: 1; /* Allow viewer to grow and fill the space */
+        height: auto;   /* Unset the fixed mobile height */
     }
     #structure-info-panel {
         flex-direction: row;
-        text-align: left;
+        align-items: flex-start; /* Align to the start on desktop */
+        height: 150px; /* Fixed height for alignment */
     }
-    #structure-2d-viewer {
-        margin: 0;
+    #info-text {
+        text-align: left;
     }
 }
