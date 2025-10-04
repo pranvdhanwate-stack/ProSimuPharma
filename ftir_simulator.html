@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTIR Simulator - SimuPharma</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ftir_style.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1><a href="index.html">🔬 SimuPharma</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="instruments.html">Instruments</a></li>
+                    <li><a href="quiz.html">Quiz Zone</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="advanced-sim-main">
+        <div class="main-container">
+        
+            <div class="simulator-card" id="tour-step-4">
+                <div class="card-header">
+                    <h1>FTIR Spectrometer</h1>
+                    <div class="live-readouts">
+                        <span>Status: <strong id="statusText">Ready</strong></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <canvas id="ftirChart"></canvas>
+                    <div id="peak-tooltip"></div>
+                </div>
+            </div>
+
+            <div class="controls-card">
+                <div class="card-header">
+                    <h2>Instrument Control</h2>
+                </div>
+                <div class="card-body">
+                    <div class="control-group" id="tour-step-1">
+                        <label for="sampleSelect">Select Sample to Analyze</label>
+                        <select id="sampleSelect">
+                            <option value="paracetamol">Unknown A (Paracetamol)</option>
+                            <option value="ipa">Unknown B (Isopropyl Alcohol)</option>
+                        </select>
+                    </div>
+                    <hr>
+                    <div class="workflow-steps">
+                        <p><strong>Workflow:</strong></p>
+                        <button id="backgroundScanBtn" class="sim-button">1. Run Background Scan</button>
+                        <button id="sampleScanBtn" class="sim-button" disabled>2. Run Sample Scan</button>
+                    </div>
+                    <hr>
+                     <div class="control-group" id="analysis-section" style="visibility: hidden;">
+                        <label for="standardSelect">Compare with Standard</label>
+                        <select id="standardSelect">
+                            <option value="none">-- Select Standard --</option>
+                            <option value="paracetamol">Paracetamol</option>
+                            <option value="ipa">Isopropyl Alcohol</option>
+                        </select>
+                        <button id="overlayBtn" class="sim-button">Overlay & Analyze</button>
+                        <div id="match-result-container" class="match-result"></div>
+                    </div>
+                    <hr>
+                    <button id="tutorialBtn" class="sim-button">🎓 Start Tutorial</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SimuPharma | Developed by Pranav & Piyush, PRCOP</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
+    <script src="ftir_script.js"></script>
+</body>
+</html>

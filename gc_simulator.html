@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>GC Simulator - SimuPharma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gc_style.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body id="gc-sim-page">
+    <header>
+        <div class="container">
+            <h1><a href="index.html">🔬 SimuPharma</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="instruments.html">Instruments</a></li>
+                    <li><a href="quiz.html">Quiz Zone</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="advanced-sim-main">
+        <div class="main-container">
+        
+            <div class="simulator-card" id="tour-step-4">
+                <div class="card-header">
+                    <h1>Gas Chromatography</h1>
+                    <div class="live-readouts">
+                        <span>Time: <strong id="liveTime">0.00</strong> min</span>
+                        <span>Oven: <strong id="liveTemp">30</strong> °C</span>
+                        <span>Signal: <strong id="liveSignal">0</strong></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <canvas id="gcChart"></canvas>
+                    <div id="report-container"></div>
+                </div>
+            </div>
+
+            <div class="controls-card">
+                <div class="card-header">
+                    <h2>Method Parameters</h2>
+                </div>
+                <div class="card-body">
+                    <div class="control-group" id="tour-step-1">
+                        <label for="sampleSelect">Sample for Analysis</label>
+                        <select id="sampleSelect">
+                            <option value="alcohols">Alcohol Mixture (C1-C3)</option>
+                            <option value="peppermint">Peppermint Oil</option>
+                        </select>
+                    </div>
+                    <hr>
+                    <p class="param-title"><strong>Oven Temperature Program</strong></p>
+                    <div class="param-group">
+                        <label for="initialTemp">Initial Temperature</label>
+                        <input type="number" id="initialTemp" value="50" min="30" max="100">
+                    </div>
+                    <div class="param-group">
+                        <label for="rampRate">Ramp Rate (°C/min)</label>
+                        <input type="number" id="rampRate" value="10" min="5" max="30">
+                    </div>
+                     <div class="param-group">
+                        <label for="runTime">Total Run Time (min)</label>
+                        <input type="number" id="runTime" value="12" min="5" max="20">
+                    </div>
+                    <hr>
+                    <div class="workflow-steps">
+                        <button id="setTempsBtn" class="sim-button">1. Equilibrate System</button>
+                        <button id="injectBtn" class="sim-button" disabled>2. Inject Sample & Run</button>
+                    </div>
+                    <hr>
+                    <button id="tutorialBtn" class="sim-button">🎓 Start Tutorial</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SimuPharma | Developed by Pranav & Piyush, PRCOP</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
+    <script src="gc_script.js"></script>
+</body>
+</html>

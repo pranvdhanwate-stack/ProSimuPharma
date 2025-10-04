@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UV-Vis Simulator - SimuPharma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="uv_vis_style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                 <svg viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
+                    <style>.simu-text{font-family:'Poppins',sans-serif;font-size:40px;font-weight:600;fill:none;stroke:#007bff;stroke-width:1.5;stroke-dasharray:600;stroke-dashoffset:600;animation:draw-text 3s ease-in-out forwards}.pharma-text{font-family:'Poppins',sans-serif;font-size:40px;font-weight:600;fill:none;stroke:#6f42c1;stroke-width:1.5;stroke-dasharray:800;stroke-dashoffset:800;animation:draw-text 3s ease-in-out forwards .5s}.glow{opacity:0;animation:pulse-glow 4s ease-in-out infinite 3s}@keyframes draw-text{to{stroke-dashoffset:0;fill:currentColor}}@keyframes pulse-glow{0%,100%{opacity:0}50%{opacity:.8}}</style>
+                    <defs><linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#007BFF"/><stop offset="100%" stop-color="#6F42C1"/></linearGradient><filter id="glow-effect"><feGaussianBlur stdDeviation="3.5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+                    <g class="glow" filter="url(#glow-effect)"><text class="simu-text" x="10" y="45" fill="url(#logoGradient)">Simu</text><text class="pharma-text" x="130" y="45" fill="url(#logoGradient)">Pharma</text></g>
+                    <text class="simu-text" x="10" y="45" stroke="#007BFF" fill="#007BFF">Simu</text><text class="pharma-text" x="130" y="45" stroke="#6F42C1" fill="#6F42C1">Pharma</text>
+                </svg>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="instruments.html">Instruments</a></li>
+                    <li><a href="quiz.html">Quiz Zone</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="advanced-sim-main">
+        <div class="uv-vis-main-container">
+            <div class="controls-card">
+                <div class="card-header">
+                    <h2>Analysis Workflow</h2>
+                </div>
+                <div class="card-body">
+                    <div id="workflow-1" class="workflow-section active">
+                        <h3>1. Wavelength Scan</h3>
+                        <div class="control-group">
+                            <label for="sampleSelect">Select Compound</label>
+                            <select id="sampleSelect"></select>
+                            <button id="scanButton" class="sim-button">Run Scan</button>
+                        </div>
+                    </div>
+
+                    <div id="workflow-2" class="workflow-section">
+                        <h3>2. Create Calibration Curve</h3>
+                        <div class="control-group">
+                            <label for="setWavelengthInput">Set Wavelength (nm)</label>
+                            <input type="number" id="setWavelengthInput" placeholder="λmax from scan" readonly>
+                            <p style="font-size: 0.8em; color: var(--text-secondary); margin-bottom: 10px;">(5 standards from 2-10 mg/L will be measured)</p>
+                            <button id="measureStandardsButton" class="sim-button">Measure Standards</button>
+                        </div>
+                    </div>
+
+                    <div id="workflow-3" class="workflow-section">
+                        <h3>3. Analyze Unknown</h3>
+                        <div class="control-group">
+                            <label for="unknownConcentrationInput">True Unknown Conc. (mg/L)</label>
+                            <input type="number" id="unknownConcentrationInput" value="5.5" min="1" max="10" step="0.1">
+                            <button id="measureUnknownButton" class="sim-button">Measure Unknown</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <button id="tutorialBtn" class="sim-button" style="background-color:#9b59b6;">🎓 Start Tutorial</button>
+                </div>
+            </div>
+
+            <div class="results-card">
+                <div class="card-header">
+                    <h2>Results & Data</h2>
+                </div>
+                <div class="card-body">
+                    <div id="results-display">
+                        <p>Select a compound and run a scan to begin.</p>
+                    </div>
+                    <hr>
+                    <div class="chart-container">
+                        <canvas id="scanChart"></canvas>
+                        <canvas id="calibChart" style="display:none;"></canvas>
+                    </div>
+                    <div class="final-result">
+                        <p id="regression-equation"></p>
+                        <div id="final-result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SimuPharma | Developed by Pranav & Piyush, PRCOP</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
+    <script src="uv_vis_script.js"></script>
+</body>
+</html>

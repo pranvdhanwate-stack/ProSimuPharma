@@ -1,0 +1,82 @@
+/* --- INTERACTIVE DIAGRAM STYLES --- */
+#instrument-diagram-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: #eef6ff;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    /* overflow: hidden; <-- This was the problem, so it's removed. */
+}
+
+#instrument-diagram-svg {
+    width: 100%;
+    height: auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+.diagram-component {
+    cursor: pointer;
+}
+
+/* Base styles for the component icons */
+.component-base { fill: #d6eaf8; transition: fill 0.2s ease-in-out; }
+.component-detail { fill: #85c1e9; }
+.component-accent { fill: #3498db; }
+
+.diagram-component:hover .component-base {
+    fill: #aed6f1;
+}
+
+.diagram-flow-path {
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 3;
+    opacity: 0.3;
+}
+
+/* Sparkle Animation */
+#flow-sparkle {
+    fill: #f1c40f;
+    r: 6;
+    filter: drop-shadow(0 0 3px #f1c40f);
+    animation: follow-path 15s linear infinite;
+}
+@keyframes follow-path {
+    from { motion-offset: 0%; }
+    to { motion-offset: 100%; }
+}
+
+/* --- DETAILED TOOLTIP STYLES --- */
+#diagram-tooltip {
+    position: absolute;
+    background-color: rgba(44, 62, 80, 0.95);
+    color: white;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    transform: translate(-50%, -125%); /* Default transform */
+    white-space: normal;
+    z-index: 10;
+    width: 220px;
+    border: 1px solid #7f8c8d;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+#tooltip-title {
+    font-weight: 700;
+    color: #5dade2;
+    margin: 0 0 5px 0;
+    display: block;
+    font-size: 1em;
+}
+
+#tooltip-desc {
+    font-weight: 400;
+    line-height: 1.5;
+}

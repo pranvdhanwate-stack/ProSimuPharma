@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced HPLC Simulator - SimuPharma</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="hplc_advanced_style.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body id="hplc-sim-page-body"> <header>
+        </header>
+
+    <main class="advanced-sim-main">
+        <div class="main-container">
+        
+            <div class="simulator-card">
+                <div class="card-header">
+                    <h1>HPLC Simulator</h1>
+                    <div class="live-readouts">
+                        <span>Time: <strong id="liveTime">0.00</strong> min</span>
+                        <span>Signal: <strong id="liveSignal">0</strong> mAU</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <canvas id="chromatogramCanvas"></canvas>
+                    <div id="report-container"></div>
+                </div>
+            </div>
+
+            <div class="controls-card">
+                <div class="card-header">
+                    <h2>Method Parameters</h2>
+                </div>
+                <div class="card-body">
+                    <div class="control-group" id="tour-step-1">
+                        <label for="compoundSelect">Sample:</label>
+                        <select id="compoundSelect">
+                            <option value="paracetamol">Paracetamol</option>
+                            <option value="aspirin">Aspirin</option>
+                            <option value="caffeine">Caffeine</option>
+                            <option value="mixture">Mixture (Aspirin + Caffeine)</option>
+                        </select>
+                    </div>
+                     <div class="control-group" id="tour-step-2">
+                        <label for="injectionVolume">Injection Volume (µL):</label>
+                        <input type="number" id="injectionVolume" value="20" min="1" max="100">
+                    </div>
+                    <div class="control-group" id="tour-step-3">
+                        <label for="wavelength">Detection Wavelength (nm):</label>
+                        <input type="number" id="wavelength" value="254" min="190" max="400">
+                    </div>
+                    <div class="control-group" id="tour-step-4">
+                        <label for="flowRate">Flow Rate (mL/min):</label>
+                        <input type="number" id="flowRate" value="1.0" min="0.5" max="2.0" step="0.1">
+                    </div>
+                    <div class="control-group" id="tour-step-5">
+                        <label for="composition">Methanol (%):</label>
+                        <input type="number" id="composition" value="60" min="20" max="100">
+                    </div>
+                    <div class="control-group">
+                        <label for="runTime">Run Time (min):</label>
+                        <input type="number" id="runTime" value="10" min="5" max="20">
+                    </div>
+                    <hr>
+                    <button id="runButton" class="sim-button">Run Simulation</button>
+                    <div class="button-group">
+                        <button id="saveButton" class="sim-button">Save Method 💾</button>
+                        <button id="loadButton" class="sim-button">Load Method 📂</button>
+                    </div>
+                    <button id="tutorialBtn" class="sim-button">🎓 Start Tutorial</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SimuPharma | Developed by Pranav & Piyush, PRCOP</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
+    <script src="hplc_advanced_script.js"></script>
+</body>
+</html>

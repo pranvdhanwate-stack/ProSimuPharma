@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instruments - SimuPharma</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="instruments-page">
+    <div class="gradient-background"></div>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <svg viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
+                    <style>.simu-text{font-family:'Poppins',sans-serif;font-size:40px;font-weight:600;fill:none;stroke:#007bff;stroke-width:1.5;stroke-dasharray:600;stroke-dashoffset:600;animation:draw-text 3s ease-in-out forwards}.pharma-text{font-family:'Poppins',sans-serif;font-size:40px;font-weight:600;fill:none;stroke:#6f42c1;stroke-width:1.5;stroke-dasharray:800;stroke-dashoffset:800;animation:draw-text 3s ease-in-out forwards .5s}.glow{opacity:0;animation:pulse-glow 4s ease-in-out infinite 3s}@keyframes draw-text{to{stroke-dashoffset:0;fill:currentColor}}@keyframes pulse-glow{0%,100%{opacity:0}50%{opacity:.8}}</style>
+                    <defs><linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#007BFF"/><stop offset="100%" stop-color="#6F42C1"/></linearGradient><filter id="glow-effect"><feGaussianBlur stdDeviation="3.5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+                    <g class="glow" filter="url(#glow-effect)"><text class="simu-text" x="10" y="45" fill="url(#logoGradient)">Simu</text><text class="pharma-text" x="130" y="45" fill="url(#logoGradient)">Pharma</text></g>
+                    <text class="simu-text" x="10" y="45" stroke="#007BFF" fill="#007BFF">Simu</text><text class="pharma-text" x="130" y="45" stroke="#6F42C1" fill="#6F42C1">Pharma</text>
+                </svg>
+            </a>
+            <nav>
+    <ul>
+        <li>
+            <a href="index.html">
+                <span style="font-size: 1.5em; line-height: 1;">🏠</span>
+                <span>Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="about.html">
+                <span style="font-size: 1.5em; line-height: 1;">ℹ️</span>
+                <span>About</span>
+            </a>
+        </li>
+        <li>
+            <a href="instruments.html">
+                <span style="font-size: 1.5em; line-height: 1;">⚗️</span>
+                <span>Instruments</span>
+            </a>
+        </li>
+        <li>
+            <a href="quiz.html">
+                <span style="font-size: 1.5em; line-height: 1;">❓</span>
+                <span>Quiz Zone</span>
+            </a>
+        </li>
+        <li>
+            <a href="contact.html">
+                <span style="font-size: 1.5em; line-height: 1;">📧</span>
+                <span>Contact</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h2 class="hidden">Instrument Directory</h2>
+                <p class="hidden" style="transition-delay: 0.1s;">Select an instrument to learn its principles, watch a demo, and launch the simulator.</p>
+            </div>
+            
+            <div class="instrument-grid">
+                <a href="hplc.html" class="instrument-card hidden" style="transition-delay: 0.2s;">
+                    <div class="card-icon">🧪</div>
+                    <h3>HPLC</h3>
+                    <p>Liquid Chromatography</p>
+                </a>
+                <a href="ftir.html" class="instrument-card hidden" style="transition-delay: 0.3s;">
+                     <div class="card-icon">📈</div>
+                     <h3>FTIR Spectroscopy</h3>
+                     <p>Identify functional groups.</p>
+                </a>
+                <a href="gc.html" class="instrument-card hidden" style="transition-delay: 0.4s;">
+                     <div class="card-icon">🔥</div>
+                     <h3>Gas Chromatography</h3>
+                     <p>Analyze volatile compounds.</p>
+                </a>
+                <a href="mass_spec.html" class="instrument-card hidden" style="transition-delay: 0.5s;">
+                     <div class="card-icon">⚛️</div>
+                     <h3>Mass Spectrometry</h3>
+                     <p>Measure molecular weight.</p>
+                </a>
+                <a href="uv_vis.html" class="instrument-card hidden" style="transition-delay: 0.6s;">
+                    <div class="card-icon">☀️</div>
+                    <h3>UV-Vis Spectroscopy</h3>
+                    <p>Measure concentration.</p>
+                </a>
+                <a href="polarimeter.html" class="instrument-card hidden" style="transition-delay: 0.7s;">
+                    <div class="card-icon">🌀</div>
+                    <h3>Polarimetry</h3>
+                    <p>Analyze chiral drugs.</p>
+                </a>
+                <a href="psa.html" class="instrument-card hidden" style="transition-delay: 0.8s;">
+                    <div class="card-icon">🔬</div>
+                    <h3>Particle Size Analyzer</h3>
+                    <p>Assess size distribution.</p>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SimuPharma | Developed by Pranav & Piyush, PRCOP</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

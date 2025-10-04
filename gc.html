@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gas Chromatography - SimuPharma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="diagram_style.css">
+</head>
+<body>
+    <header>
+        </header>
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2>Gas Chromatography (GC)</h2>
+                
+                <div class="theory-page-grid">
+                    <div class="main-content">
+                        <h3>Principle</h3>
+                        <p>Gas Chromatography is a separation technique used for analyzing volatile compounds. A sample is vaporized and injected into a carrier gas stream (the mobile phase), which carries it through a long, thin column containing a stationary phase. Components separate based on their boiling points and affinity for the stationary phase.</p>
+                        
+                        <h3>Key Components & Working</h3>
+                        <div id="instrument-diagram-container">
+                            <div id="diagram-tooltip"></div>
+                            <svg id="instrument-diagram-svg" viewBox="0 0 800 400">
+                                <defs>
+                                    <path id="flow-path-definition" class="diagram-flow-path" d="M 90 100 V 250 H 210 V 200 H 330 V 250 H 450 V 200 H 570 V 250 H 690" />
+                                </defs>
+                                <use href="#flow-path-definition" />
+                                <circle id="flow-sparkle"><animateMotion dur="15s" repeatCount="indefinite"><mpath href="#flow-path-definition"/></animateMotion></circle>
+
+                                <g class="diagram-component" transform="translate(50, 50)" data-title="Carrier Gas" data-desc="An inert gas (like Helium or Nitrogen) that carries the vaporized sample through the system.">
+                                    <rect class="component-base" y="5" width="80" height="100" rx="10"/>
+                                    <rect class="component-accent" x="30" y="0" width="20" height="20" rx="2"/>
+                                </g>
+                                <g class="diagram-component" transform="translate(50, 220)" data-title="Injector" data-desc="A heated port that rapidly vaporizes the liquid sample as it is introduced.">
+                                    <rect class="component-base" width="80" height="60" rx="5"/>
+                                    <path class="component-detail" d="M 40 0 V 30 L 25 45 H 55 L 40 30" stroke-width="2"/>
+                                    <rect class="component-accent" x="20" y="50" width="40" height="5" fill="#e74c3c"/>
+                                </g>
+                                <g class="diagram-component" transform="translate(180, 170)" data-title="GC Oven" data-desc="A temperature-controlled chamber that houses the column and heats it according to a set program.">
+                                    <rect class="component-base" width="180" height="120" rx="8"/>
+                                </g>
+                                <g class="diagram-component" transform="translate(225, 220)" data-title="Column" data-desc="A long, thin, coiled tube where the separation of volatile components actually occurs.">
+                                    <circle class="component-accent" cx="45" cy="40" r="35" fill="none" stroke-width="6"/>
+                                </g>
+                                <g class="diagram-component" transform="translate(420, 170)" data-title="Detector (FID)" data-desc="Senses the components as they exit the column, often by burning them in a flame and measuring the ions produced.">
+                                    <rect class="component-base" width="60" height="60" rx="5"/>
+                                    <path class="component-accent" d="M20 50 C 25 40, 35 40, 40 50 M 25 40 C 28 30, 32 30, 35 40" stroke-width="2" fill="#f39c12"/>
+                                </g>
+                                <g class="diagram-component" transform="translate(540, 220)" data-title="Data System" data-desc="A computer that processes the detector's signal to generate the final chromatogram.">
+                                    <rect class="component-base" width="80" height="70" rx="5" />
+                                    <rect class="component-detail" x="10" y="10" width="60" height="40" rx="3" fill="#2c3e50" />
+                                    <path class="component-accent" d="M20 40 Q 30 20, 40 30 T 60 25" stroke-width="2" fill="none" />
+                                </g>
+                            </svg>
+                        </div>
+                        <h3>Applications in Pharmacy</h3>
+                        <ul>
+                            <li><b>Residual Solvent Analysis:</b> Detecting trace amounts of organic solvents left over from the manufacturing process.</li>
+                            <li><b>Purity of Volatile Raw Materials:</b> Assessing the purity of starting materials like ethanol.</li>
+                            <li><b>Analysis of Essential Oils:</b> Separating and identifying the various components in natural product extracts.</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-content">
+                        <h3>Watch a Professional Demo</h3>
+                        <iframe src="https://www.youtube.com/embed/6Z61ezJFfyA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <a href="gc_simulator.html" class="btn">🚀 Launch GC Simulator</a>
+                        <img src="gc-sim.png" alt="GC Simulator Preview" class="simulator-screenshot">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 SimuPharma | Developed by Pranav & Piyush, Pravara Rural College of Pharmacy</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="diagram_script.js"></script>
+</body>
+</html>

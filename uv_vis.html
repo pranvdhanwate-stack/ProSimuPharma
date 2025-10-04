@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UV-Vis Spectroscopy - SimuPharma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="diagram_style.css">
+</head>
+<body>
+    <header>
+        </header>
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2>UV-Visible Spectroscopy</h2>
+                <div class="theory-page-grid">
+                    <div class="main-content">
+                        <h3>Principle</h3>
+                        <p>UV-Visible spectroscopy measures the absorption of UV or visible light by a substance. The amount of light absorbed is directly proportional to the concentration of the substance, a relationship described by the Beer-Lambert Law, making it ideal for quantitative analysis.</p>
+                        <h3>Key Components & Working</h3>
+                        <div id="instrument-diagram-container">
+                             <div id="diagram-tooltip"></div>
+                            <svg id="instrument-diagram-svg" viewBox="0 0 800 400">
+                                <defs>
+                                    <path id="flow-path-definition" class="diagram-flow-path" d="M 90 200 H 210 H 330 H 450 H 570 H 690" />
+                                    <linearGradient id="rainbow" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="violet"/><stop offset="20%" stop-color="blue"/><stop offset="40%" stop-color="green"/><stop offset="60%" stop-color="yellow"/><stop offset="80%" stop-color="orange"/><stop offset="100%" stop-color="red"/>
+                                    </linearGradient>
+                                </defs>
+                                <use href="#flow-path-definition" />
+                                <circle id="flow-sparkle"><animateMotion dur="8s" repeatCount="indefinite"><mpath href="#flow-path-definition"/></animateMotion></circle>
+
+                                <g class="diagram-component" transform="translate(50, 170)" data-title="Light Source" data-desc="A lamp (e.g., Deuterium/Tungsten) that emits a broad spectrum of UV and visible light.">
+                                    <rect class="component-base" width="80" height="60" rx="5"/>
+                                    <circle cx="40" cy="30" r="20" fill="#f1c40f"/>
+                                </g>
+                                <g class="diagram-component" transform="translate(180, 170)" data-title="Monochromator" data-desc="Selects a single, specific wavelength of light from the broad spectrum source.">
+                                    <rect class="component-base" width="80" height="60" rx="5"/>
+                                    <rect x="10" y="10" width="60" height="40" fill="url(#rainbow)"/>
+                                </g>
+                                <g class="diagram-component" transform="translate(300, 150)" data-title="Sample (Cuvette)" data-desc="A transparent cell that holds the liquid sample in the path of the light beam.">
+                                    <rect class="component-base" width="80" height="100" rx="2"/>
+                                    <rect class="component-detail" x="10" y="10" width="60" height="80" fill="#aed6f1"/>
+                                </g>
+                                <g class="diagram-component" transform="translate(450, 170)" data-title="Detector" data-desc="Measures the intensity of the light that passes through the sample.">
+                                    <rect class="component-base" width="80" height="60" rx="5"/>
+                                    <path class="component-accent" d="M10 10 L 70 30 L 10 50 Z" />
+                                </g>
+                                <g class="diagram-component" transform="translate(600, 170)" data-title="Data System" data-desc="A computer that calculates the absorbance and displays the final concentration value.">
+                                    <rect class="component-base" width="100" height="70" rx="5" />
+                                    <rect class="component-detail" x="10" y="10" width="80" height="40" rx="3" fill="#2c3e50" />
+                                    <text x="50" y="35" text-anchor="middle" font-size="14" fill="white" font-family="monospace">Abs = 0.543</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <h3>Applications in Pharmacy</h3>
+                        <ul>
+                            <li><b>Quantitative Analysis:</b> To determine the precise concentration of an API in a solution.</li>
+                            <li><b>Purity Determination:</b> Can be used to detect impurities that absorb at different wavelengths.</li>
+                            <li><b>Dissolution Testing:</b> Used to measure the amount of drug dissolved over time.</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-content">
+                        <h3>Watch a Professional Demo</h3>
+                        <iframe src="https://www.youtube.com/embed/9XXBl7nBYIY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <a href="uv_vis_simulator.html" class="btn">🚀 Launch UV-Vis Simulator</a>
+                        <img src="uv-vis-sim.png" alt="UV-Vis Simulator Preview" class="simulator-screenshot">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 SimuPharma | Developed by Pranav & Piyush, Pravara Rural College of Pharmacy</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="diagram_script.js"></script>
+</body>
+</html>

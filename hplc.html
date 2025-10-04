@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HPLC - SimuPharma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="diagram_style.css"> </head>
+<body>
+    <header>
+        </header>
+
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2>High-Performance Liquid Chromatography (HPLC)</h2>
+                
+                <div class="theory-page-grid">
+                    <div class="main-content">
+                        <h3>Principle</h3>
+                        <p>HPLC operates on the principle of differential partitioning. A sample mixture is pumped in a liquid mobile phase at high pressure through a column packed with a solid stationary phase. Each component in the sample interacts differently with the stationary phase, causing them to travel through the column at different speeds and thus separate.</p>
+                        
+                        <h3>Key Components & Working</h3>
+                        <div id="instrument-diagram-container">
+                            <div id="diagram-tooltip"></div>
+                            <svg id="instrument-diagram-svg" viewBox="0 0 800 400">
+                                <defs>
+                                    <path id="flow-path-definition" class="diagram-flow-path" d="M 90 120 V 250 H 210 V 200 H 330 V 250 H 450 V 200 H 570 V 250 H 690" />
+                                </defs>
+
+                                <use href="#flow-path-definition" />
+                                <circle id="flow-sparkle">
+                                    <animateMotion dur="15s" repeatCount="indefinite">
+                                        <mpath href="#flow-path-definition" />
+                                    </animateMotion>
+                                </circle>
+
+                                <g class="diagram-component" transform="translate(50, 50)" 
+                                   data-title="Solvent Reservoir" 
+                                   data-desc="Holds the mobile phase (the liquid solvent) that carries the sample through the system.">
+                                    <path class="component-base" d="M10,0 H70 C75,0 80,5 80,10 V70 H0 V10 C0,5 5,0 10,0 Z" />
+                                    <rect class="component-detail" x="10" y="30" width="60" height="40" fill="#aed6f1" />
+                                    <rect class="component-accent" x="35" y="5" width="10" height="15" rx="2" />
+                                </g>
+
+                                <g class="diagram-component" transform="translate(50, 220)"
+                                   data-title="Pump"
+                                   data-desc="Pushes the mobile phase through the system at a high, constant pressure and a precise flow rate.">
+                                    <rect class="component-base" width="80" height="60" rx="5" />
+                                    <circle class="component-detail" cx="25" cy="30" r="15" />
+                                    <circle class="component-detail" cx="55" cy="30" r="15" />
+                                    <rect class="component-accent" x="20" y="25" width="10" height="10" />
+                                    <rect class="component-accent" x="50" y="25" width="10" height="10" />
+                                </g>
+
+                                <g class="diagram-component" transform="translate(180, 170)"
+                                   data-title="Injector"
+                                   data-desc="Introduces a small, precise volume of the sample into the high-pressure mobile phase stream.">
+                                    <rect class="component-base" width="60" height="60" rx="5" />
+                                    <circle class="component-accent" cx="30" cy="30" r="20" fill="none" stroke-width="4" />
+                                    <path class="component-detail" d="M30 15 V 45 M 15 30 H 45" stroke-width="4" />
+                                </g>
+                                
+                                <g class="diagram-component" transform="translate(300, 220)"
+                                   data-title="Column"
+                                   data-desc="The heart of the HPLC, where the separation of the sample components occurs on the stationary phase.">
+                                    <rect class="component-base" width="60" height="120" rx="8" />
+                                    <rect class="component-accent" x="10" y="10" width="40" height="100" rx="5" />
+                                </g>
+
+                                <g class="diagram-component" transform="translate(420, 170)"
+                                   data-title="Detector"
+                                   data-desc="Sees and measures the separated components as they exit the column, converting the chemical signal to an electrical one.">
+                                    <rect class="component-base" width="60" height="60" rx="5" />
+                                    <path class="component-accent" d="M10 30 H 50 L 30 15 Z" />
+                                </g>
+
+                                <g class="diagram-component" transform="translate(540, 220)"
+                                   data-title="Data System"
+                                   data-desc="A computer that processes the signal from the detector to generate the final chromatogram.">
+                                    <rect class="component-base" width="80" height="70" rx="5" />
+                                    <rect class="component-detail" x="10" y="10" width="60" height="40" rx="3" fill="#2c3e50" />
+                                    <path class="component-accent" d="M20 40 Q 30 20, 40 30 T 60 25" stroke-width="2" fill="none" />
+                                </g>
+
+                                <g class="diagram-component" transform="translate(680, 220)"
+                                   data-title="Waste"
+                                   data-desc="Collects the mobile phase and separated sample components after they have passed through the detector.">
+                                    <path class="component-base" d="M0 0 H 60 V 50 Q 50 60, 30 60 Q 10 60, 0 50 Z" />
+                                    <circle class="component-detail" cx="30" cy="30" r="10" />
+                                </g>
+                            </svg>
+                        </div>
+                        
+                        <h3>Applications in Pharmacy</h3>
+                        <ul>
+                            <li><b>Drug Purity and Assay:</b> Quantifying the amount of active pharmaceutical ingredient (API).</li>
+                            <li><b>Impurity Profiling:</b> Identifying and quantifying unknown impurities in drug substances.</li>
+                            <li><b>Stability Studies:</b> Monitoring drug degradation over time under various conditions.</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-content">
+                        <h3>Watch a Professional Demo</h3>
+                        <iframe src="https://www.youtube.com/embed/eCj0cRtJvJg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <a href="hplc_simulator.html" class="btn">🚀 Launch Full Simulator</a>
+                        <img src="hplc-sim.png" alt="HPLC Simulator Preview" class="simulator-screenshot">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 SimuPharma | Developed by Pranav & Piyush, Pravara Rural College of Pharmacy</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="diagram_script.js"></script>
+</body>
+</html>

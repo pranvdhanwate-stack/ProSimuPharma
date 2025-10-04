@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSA Simulator - SimuPharma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
+    <link rel="stylesheet" href="psa_style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1.3.1"></script>
+</head>
+<body>
+
+    <div class="psa-dashboard">
+        <aside class="sidebar">
+            <div class="sidebar-header" id="tour-step-1">
+                <a href="index.html">🔬</a>
+                <span>psa_simulator</span>
+            </div>
+
+            <div class="card" id="tour-step-2">
+                <div class="card-header">
+                    <h3>Particle Size Analyzer</h3>
+                    <button class="options-btn">⋮</button>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">A simulation of Dynamic Light Scattering (DLS) for nanoparticle analysis.</p>
+                    <a href="psa.html" class="card-link">Learn the theory ↗</a>
+                    <button id="runButton" class="run-button">Run Analysis</button>
+                    <button id="tutorialBtn" class="run-button" style="background-color: var(--accent-orange); margin-top: 10px;">🎓 Start Tutorial</button>
+                </div>
+            </div>
+
+            <div class="card" id="tour-step-3">
+                <div class="card-header">
+                    <h3>Method Parameters</h3>
+                    <button class="options-btn">⋮</button>
+                </div>
+                <div class="card-body method-parameters">
+                    <div class="param-section">
+                        <label class="param-title">Material</label>
+                        <div class="control-group">
+                            <label for="sampleType">Sample Type</label>
+                            <select id="sampleType">
+                                <option value="liposomes">Liposomal Drug Delivery</option>
+                                <option value="microemulsion">Microemulsion</option>
+                                <option value="raw_powder">Unprocessed Drug Powder</option>
+                                <option value="aggregated_protein">Aggregated Protein Solution</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="materialRi">Refractive Index (RI)</label>
+                            <input type="number" id="materialRi" value="1.45" step="0.01">
+                        </div>
+                    </div>
+                    <div class="param-section">
+                        <label class="param-title">Dispersant</label>
+                         <div class="control-group">
+                            <label for="dispersantSelect">Dispersant Type</label>
+                            <select id="dispersantSelect">
+                                <option value="water" selected>Water</option>
+                                <option value="ethanol">Ethanol</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="dispersantViscosity">Viscosity (mPa·s)</label>
+                            <input type="number" id="dispersantViscosity" value="0.89" readonly>
+                        </div>
+                    </div>
+                     <div class="param-section">
+                        <label class="param-title">Measurement</label>
+                         <div class="control-group">
+                            <label for="measurementAngle">Measurement Angle</label>
+                            <select id="measurementAngle">
+                                <option value="173">173° (Backscatter)</option>
+                                <option value="90">90° (Side scatter)</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="equilibrationTime">Equilibration Time (s)</label>
+                            <input type="number" id="equilibrationTime" value="120" min="0">
+                        </div>
+                         <div class="control-group">
+                            <label for="numberOfRuns">Number of Runs</label>
+                            <input type="number" id="numberOfRuns" value="3" min="1" max="10">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="main-header">
+                <div class="header-title">Particle Size Analysis Dashboard</div>
+                <div class="header-actions">
+                    <a href="contact.html">Help</a>
+                    <span>|</span>
+                    <a href="about.html">About</a>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="card grid-col-span-6" id="tour-step-4">
+                    <div class="card-header">
+                        <h3>Results</h3>
+                    </div>
+                    <div class="card-body results-card-body">
+                        <div class="results-summary-container">
+                            <div class="summary-values">
+                                <p>Z-Average (d.nm): <strong id="zAverage">--</strong></p>
+                                <p>PDI: <strong id="pdi">--</strong></p>
+                                <p>Intercept: <strong id="intercept">--</strong></p>
+                                <p class="result-quality">Result Quality: <strong id="quality">--</strong></p>
+                            </div>
+                            <div class="summary-table">
+                                <table id="peak-table-summary">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Size (d.nm)</th>
+                                            <th>% Intensity</th>
+                                            <th>Width (d.nm)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="psaChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card grid-col-span-3" id="tour-step-5">
+                     <div class="card-header">
+                        <h3>Analysis Log & Summary</h3>
+                    </div>
+                     <div class="card-body">
+                        <div id="run-log">Waiting for analysis to start...</div>
+                    </div>
+                </div>
+
+                <div class="card grid-col-span-3">
+                     <div class="card-header">
+                        <h3>Detailed Results</h3>
+                    </div>
+                     <div class="card-body">
+                        <div class="peak-table-container">
+                            <table id="peak-table-details">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                         <div class="report-quality">
+                            <h4>#Report Suitability</h4>
+                            <p>Data meets quality criteria: <strong id="report-quality-check">--</strong></p>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
+    <script src="psa_script.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTIR - SimuPharma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="diagram_style.css">
+</head>
+<body>
+    <header>
+        </header>
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2>Fourier-Transform Infrared Spectroscopy (FTIR)</h2>
+                <div class="theory-page-grid">
+                    <div class="main-content">
+                        <h3>Principle</h3>
+                        <p>FTIR is an analytical technique used to identify organic and some inorganic materials. It works by passing infrared radiation through a sample. Different chemical bonds in a molecule absorb IR radiation at specific frequencies (or wavenumbers). The resulting pattern of absorption vs. wavenumber is a unique "fingerprint" of the molecule.</p>
+                        <h3>Key Components & Working</h3>
+                        <div id="instrument-diagram-container">
+                            <div id="diagram-tooltip"></div>
+                            <svg id="instrument-diagram-svg" viewBox="0 0 800 400">
+                                <defs>
+                                    <path id="flow-path-definition" class="diagram-flow-path" d="M 90 200 H 250 L 350 125 M 250 200 L 350 275 M 350 125 L 450 200 M 350 275 L 450 200 L 570 200 H 690" />
+                                </defs>
+                                <use href="#flow-path-definition" />
+                                <circle id="flow-sparkle"><animateMotion dur="10s" repeatCount="indefinite"><mpath href="#flow-path-definition"/></animateMotion></circle>
+
+                                <g class="diagram-component" transform="translate(50, 175)" data-title="IR Source" data-desc="A glowing element (like a Globar) that emits a broad spectrum of infrared radiation.">
+                                    <rect class="component-base" width="80" height="50" rx="5"/>
+                                    <circle class="component-accent" cx="90" cy="25" r="20" fill="#f39c12"/>
+                                </g>
+                                <g class="diagram-component" transform="translate(250, 100)" data-title="Interferometer" data-desc="The core of the FTIR; it splits the IR beam, modulates it, and recombines it to create an interferogram.">
+                                    <rect class="component-base" width="200" height="200" rx="8"/>
+                                    <path class="component-detail" d="M50 100 H 150 M 100 50 V 150" stroke-width="4"/>
+                                    <rect class="component-accent" x="80" y="80" width="40" height="40" fill="none" stroke-width="3"/>
+                                </g>
+                                <g class="diagram-component" transform="translate(540, 175)" data-title="Sample Compartment" data-desc="The area where the sample is placed, allowing the modulated IR beam to pass through it.">
+                                    <rect class="component-base" width="60" height="80" rx="5"/>
+                                    <rect class="component-detail" x="15" y="10" width="30" height="60" fill="#2c3e50"/>
+                                </g>
+                                <g class="diagram-component" transform="translate(660, 175)" data-title="Detector" data-desc="Measures the intensity of the interferogram after it has passed through the sample.">
+                                    <rect class="component-base" width="60" height="50" rx="5"/>
+                                    <path class="component-accent" d="M10 25 L 25 10 L 25 40 Z M 35 10 L 35 40 L 50 25 Z"/>
+                                </g>
+                                <g class="diagram-component" transform="translate(620, 300)" data-title="Computer (Fourier Transform)" data-desc="A computer that applies a mathematical Fourier Transform to convert the interferogram into the final spectrum.">
+                                    <rect class="component-base" width="80" height="70" rx="5" />
+                                    <rect class="component-detail" x="10" y="10" width="60" height="40" rx="3" fill="#2c3e50" />
+                                    <path class="component-accent" d="M20 40 Q 30 20, 40 30 T 60 25" stroke-width="2" fill="none" />
+                                </g>
+                            </svg>
+                        </div>
+                        <h3>Applications in Pharmacy</h3>
+                        <ul>
+                            <li><b>Raw Material Identification:</b> Quickly verifying the identity of incoming chemical ingredients.</li>
+                            <li><b>Polymorph Analysis:</b> Differentiating between different crystalline forms of a drug.</li>
+                            <li><b>Functional Group Analysis:</b> Identifying key chemical bonds in a newly synthesized molecule.</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-content">
+                        <h3>Watch a Professional Demo</h3>
+                        <iframe src="https://www.youtube.com/embed/0e_xBwQ7znI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <a href="ftir_simulator.html" class="btn">🚀 Launch FTIR Simulator</a>
+                        <img src="ftir-sim.png" alt="FTIR Simulator Preview" class="simulator-screenshot">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 SimuPharma | Developed by Pranav & Piyush, Pravara Rural College of Pharmacy</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="diagram_script.js"></script>
+</body>
+</html>

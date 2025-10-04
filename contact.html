@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - SimuPharma</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <svg viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
+                    <style>
+                        .simu-text {
+                            font-family: 'Poppins', sans-serif;
+                            font-size: 40px;
+                            font-weight: 600;
+                            fill: none;
+                            stroke: #007BFF;
+                            stroke-width: 1.5;
+                            stroke-dasharray: 600;
+                            stroke-dashoffset: 600;
+                            animation: draw-text 3s ease-in-out forwards;
+                        }
+                        .pharma-text {
+                            font-family: 'Poppins', sans-serif;
+                            font-size: 40px;
+                            font-weight: 600;
+                            fill: none;
+                            stroke: #6F42C1;
+                            stroke-width: 1.5;
+                            stroke-dasharray: 800;
+                            stroke-dashoffset: 800;
+                            animation: draw-text 3s ease-in-out forwards 0.5s;
+                        }
+                        .glow {
+                            opacity: 0;
+                            animation: pulse-glow 4s ease-in-out infinite 3s;
+                        }
+                        @keyframes draw-text {
+                            to {
+                                stroke-dashoffset: 0;
+                                fill: currentColor;
+                            }
+                        }
+                        @keyframes pulse-glow {
+                            0%, 100% { opacity: 0; }
+                            50% { opacity: 0.8; }
+                        }
+                    </style>
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#007BFF" />
+                            <stop offset="100%" stop-color="#6F42C1" />
+                        </linearGradient>
+                        <filter id="glow-effect">
+                            <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </feMerge>
+                    </defs>
+                    <g class="glow" filter="url(#glow-effect)">
+                        <text class="simu-text" x="10" y="45" fill="url(#logoGradient)">Simu</text>
+                        <text class="pharma-text" x="130" y="45" fill="url(#logoGradient)">Pharma</text>
+                    </g>
+                    <text class="simu-text" x="10" y="45" stroke="#007BFF" fill="#007BFF">Simu</text>
+                    <text class="pharma-text" x="130" y="45" stroke="#6F42C1" fill="#6F42C1">Pharma</text>
+                </svg>
+            </a>
+            <nav>
+    <ul>
+        <li>
+            <a href="index.html">
+                <span style="font-size: 1.5em; line-height: 1;">🏠</span>
+                <span>Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="about.html">
+                <span style="font-size: 1.5em; line-height: 1;">ℹ️</span>
+                <span>About</span>
+            </a>
+        </li>
+        <li>
+            <a href="instruments.html">
+                <span style="font-size: 1.5em; line-height: 1;">⚗️</span>
+                <span>Instruments</span>
+            </a>
+        </li>
+        <li>
+            <a href="quiz.html">
+                <span style="font-size: 1.5em; line-height: 1;">❓</span>
+                <span>Quiz Zone</span>
+            </a>
+        </li>
+        <li>
+            <a href="contact.html">
+                <span style="font-size: 1.5em; line-height: 1;">📧</span>
+                <span>Contact</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2>Project Credits</h2>
+                <p>This project was conceptualized and developed by:</p>
+                <ul>
+                    <li><h3>Pranav</h3></li>
+                    <li><h3>Piyush</h3></li>
+                </ul>
+                <br>
+                <p>From <strong>Pravara Rural College of Pharmacy</strong>.</p>
+                <p>We are passionate about leveraging technology to enhance the educational experience for pharmacy students everywhere.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SimuPharma | Developed by Pranav & Piyush, Pravara Rural College of Pharmacy</p>
+        </div>
+    </footer>
+</body>
+</html>

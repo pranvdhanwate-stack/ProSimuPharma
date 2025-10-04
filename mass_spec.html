@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mass Spectrometry - SimuPharma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="diagram_style.css">
+</head>
+<body>
+    <header>
+        </header>
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2>Mass Spectrometry (MS)</h2>
+                <div class="theory-page-grid">
+                    <div class="main-content">
+                        <h3>Principle</h3>
+                        <p>Mass Spectrometry is a powerful analytical technique that measures the mass-to-charge ratio (m/z) of ionized molecules. It acts like a highly precise "molecular scale," allowing for the determination of a compound's molecular weight and structure.</p>
+                        <h3>Key Components & Working</h3>
+                        <div id="instrument-diagram-container">
+                            <div id="diagram-tooltip"></div>
+                            <svg id="instrument-diagram-svg" viewBox="0 0 800 400">
+                                <defs>
+                                    <path id="flow-path-definition" class="diagram-flow-path" d="M 90 200 H 210 H 330 H 450 H 570 H 690" />
+                                </defs>
+                                <use href="#flow-path-definition" />
+                                <circle id="flow-sparkle"><animateMotion dur="8s" repeatCount="indefinite"><mpath href="#flow-path-definition"/></animateMotion></circle>
+
+                                <g class="diagram-component" transform="translate(50, 170)" data-title="Inlet System" data-desc="Introduces the sample into the instrument, often from a GC or direct infusion.">
+                                    <rect class="component-base" width="80" height="60" rx="5"/>
+                                    <path class="component-detail" d="M0 30 H 80 M 40 0 V 60" stroke-width="3"/>
+                                </g>
+                                <g class="diagram-component" transform="translate(180, 170)" data-title="Ion Source" data-desc="Converts neutral sample molecules into charged gas-phase ions (e.g., via Electron Impact).">
+                                    <rect class="component-base" width="80" height="60" rx="5"/>
+                                    <text x="40" y="38" font-size="24" text-anchor="middle" fill="#e74c3c" font-weight="bold">+</text>
+                                </g>
+                                <g class="diagram-component" transform="translate(300, 150)" data-title="Mass Analyzer" data-desc="Separates the ions based on their mass-to-charge (m/z) ratio using electric or magnetic fields.">
+                                    <rect class="component-base" width="180" height="100" rx="8"/>
+                                    <rect class="component-accent" x="10" y="20" width="160" height="15" rx="5"/>
+                                    <rect class="component-accent" x="10" y="65" width="160" height="15" rx="5"/>
+                                </g>
+                                <g class="diagram-component" transform="translate(540, 170)" data-title="Detector" data-desc="Measures the abundance of the separated ions and converts them into an electrical signal.">
+                                    <rect class="component-base" width="80" height="60" rx="5"/>
+                                    <path class="component-accent" d="M10 10 L 70 30 L 10 50 Z" fill="#3498db"/>
+                                </g>
+                                <g class="diagram-component" transform="translate(660, 170)" data-title="Data System" data-desc="A computer that processes the signal from the detector to generate the final mass spectrum.">
+                                    <rect class="component-base" width="80" height="70" rx="5" />
+                                    <rect class="component-detail" x="10" y="10" width="60" height="40" rx="3" fill="#2c3e50" />
+                                    <path class="component-accent" d="M20 40 V 30 H 30 V 40 H 40 V 20 H 50 V 40" stroke-width="4" fill="none" />
+                                </g>
+                            </svg>
+                        </div>
+                        <h3>Applications in Pharmacy</h3>
+                        <ul>
+                            <li><b>Molecular Weight Determination:</b> Confirming the identity and mass of a synthesized drug.</li>
+                            <li><b>Structural Elucidation:</b> Analyzing the fragments of a molecule to piece together its structure.</li>
+                            <li><b>Drug Metabolism Studies:</b> Identifying metabolites of a drug in biological samples.</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-content">
+                        <h3>Watch a Professional Demo</h3>
+                        <iframe src="https://www.youtube.com/embed/V553L0IKrWQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <a href="mass_spec_simulator.html" class="btn">🚀 Launch MS Simulator</a>
+                        <img src="ms-sim.png" alt="Mass Spec Simulator Preview" class="simulator-screenshot">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 SimuPharma | Developed by Pranav & Piyush, Pravara Rural College of Pharmacy</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="diagram_script.js"></script>
+</body>
+</html>

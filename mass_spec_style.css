@@ -1,0 +1,119 @@
+:root {
+    --primary-glow: #00aeff;
+    --background-dark: #1a202c;
+    --card-dark: #2d3748;
+    --border-dark: #4a5568;
+    --text-primary: #e2e8f0;
+    --text-secondary: #a0aec0;
+    --font-body: 'Roboto', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+}
+.advanced-sim-main {
+    background-color: var(--background-dark);
+    padding: 2.5rem 1rem;
+}
+.main-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.simulator-card, .controls-card {
+    background-color: var(--card-dark);
+    border-radius: 8px;
+    border: 1px solid var(--border-dark);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    color: var(--text-primary);
+    width: 100%;
+}
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0,0,0,0.2);
+    padding: 15px 25px;
+    border-bottom: 1px solid var(--border-dark);
+}
+.card-header h1, .card-header h2 { margin: 0; font-size: 1.2em; color: var(--text-primary); }
+.live-readouts strong { color: var(--primary-glow); }
+.card-body { padding: 25px; position: relative; }
+.simulator-card .card-body { height: 450px; }
+canvas { background-color: #000; border: 1px solid var(--border-dark); }
+.control-group { margin-bottom: 15px; }
+.param-title { font-size: 0.9em; color: var(--text-secondary); margin-bottom: 10px; border-bottom: 1px solid var(--border-dark); padding-bottom: 5px; text-transform: uppercase; }
+label { display: block; margin-bottom: 8px; font-size: 0.9em; color: var(--text-secondary); }
+select, input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-dark);
+    background-color: var(--background-dark);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 1em;
+    box-sizing: border-box;
+}
+.sim-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--primary-glow);
+    box-shadow: 0 0 15px rgba(0, 174, 255, 0.3);
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+.sim-button:hover {
+    background-color: #33bbff;
+    box-shadow: 0 0 25px rgba(0, 174, 255, 0.6);
+}
+#tutorialBtn { background-color: #9b59b6; margin-top: 20px; }
+#tutorialBtn:hover { background-color: #8e44ad; }
+.sim-button:disabled { background-color: #4a5568; cursor: not-allowed; opacity: 0.5; box-shadow: none; }
+hr { border: none; border-top: 1px solid var(--border-dark); margin: 20px 0; }
+
+/* --- CUSTOM GUIDED TOUR STYLES --- */
+.shepherd-element {
+    background: var(--card-dark);
+    border-radius: 8px;
+    border: 1px solid var(--border-dark);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    max-width: 400px;
+}
+.shepherd-header { background: rgba(0,0,0,0.2); padding: 1rem 1.5rem; }
+.shepherd-title { color: var(--primary-glow); font-family: var(--font-mono); font-weight: bold; font-size: 1.1em; }
+.shepherd-cancel-icon { color: var(--text-secondary); }
+.shepherd-cancel-icon:hover { color: var(--text-primary); }
+.shepherd-text { color: var(--text-primary); padding: 0 1.5rem 1rem; font-size: 0.95em; line-height: 1.6; }
+.shepherd-footer { padding: 0 1.5rem 1rem; }
+.shepherd-button {
+    background: var(--primary-glow);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.shepherd-button:not(:disabled):hover { background: #33bbff; }
+.shepherd-button.shepherd-button-secondary { background: var(--border-dark); color: var(--text-primary); }
+.shepherd-arrow::before { background-color: var(--card-dark) !important; }
+
+@media (min-width: 992px) {
+    .main-container {
+        flex-direction: row;
+    }
+    .simulator-card {
+        width: 850px;
+    }
+    .controls-card {
+        width: 280px;
+    }
+}

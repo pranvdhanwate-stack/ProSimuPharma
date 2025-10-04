@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle Size Analysis - SimuPharma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="diagram_style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <svg viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
+                    <style>.simu-text{font-family:'Poppins',sans-serif;font-size:40px;font-weight:600;fill:none;stroke:#007bff;stroke-width:1.5;stroke-dasharray:600;stroke-dashoffset:600;animation:draw-text 3s ease-in-out forwards}.pharma-text{font-family:'Poppins',sans-serif;font-size:40px;font-weight:600;fill:none;stroke:#6f42c1;stroke-width:1.5;stroke-dasharray:800;stroke-dashoffset:800;animation:draw-text 3s ease-in-out forwards .5s}.glow{opacity:0;animation:pulse-glow 4s ease-in-out infinite 3s}@keyframes draw-text{to{stroke-dashoffset:0;fill:currentColor}}@keyframes pulse-glow{0%,100%{opacity:0}50%{opacity:.8}}</style>
+                    <defs><linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#007BFF"/><stop offset="100%" stop-color="#6F42C1"/></linearGradient><filter id="glow-effect"><feGaussianBlur stdDeviation="3.5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+                    <g class="glow" filter="url(#glow-effect)"><text class="simu-text" x="10" y="45" fill="url(#logoGradient)">Simu</text><text class="pharma-text" x="130" y="45" fill="url(#logoGradient)">Pharma</text></g>
+                    <text class="simu-text" x="10" y="45" stroke="#007BFF" fill="#007BFF">Simu</text><text class="pharma-text" x="130" y="45" stroke="#6F42C1" fill="#6F42C1">Pharma</text>
+                </svg>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="instruments.html">Instruments</a></li>
+                    <li><a href="quiz.html">Quiz Zone</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2>Advanced Particle Size Analyzer (PSA)</h2>
+                <div class="theory-page-grid">
+                    <div class="main-content">
+                        <h3>Principle</h3>
+                        <p>Particle Size Analysis using Dynamic Light Scattering (DLS) is a technique used to determine the size distribution of small particles in a suspension. It works by illuminating the particles with a laser and measuring the intensity fluctuations of the scattered light. These fluctuations are caused by the Brownian motion of the particles—smaller particles move faster, causing rapid fluctuations, while larger particles move slower, causing slower fluctuations. A mathematical analysis of these fluctuations provides the hydrodynamic diameter (size) and the polydispersity (size uniformity) of the particle population.</p>
+                        
+                        <h3>Key Components & Working</h3>
+                        <div id="instrument-diagram-container">
+                             <div id="diagram-tooltip"></div>
+                            <svg id="instrument-diagram-svg" viewBox="0 0 800 400">
+                                <defs>
+                                    <path id="flow-path-definition" class="diagram-flow-path" d="M 90 200 H 250 L 500 120 M 250 200 L 500 280 H 650" />
+                                </defs>
+                                <use href="#flow-path-definition" />
+                                <circle id="flow-sparkle"><animateMotion dur="10s" repeatCount="indefinite"><mpath href="#flow-path-definition"/></animateMotion></circle>
+
+                                <g class="diagram-component" transform="translate(50, 175)" data-title="Laser Source" data-desc="Emits a stable, monochromatic beam of light that illuminates the sample.">
+                                    <rect class="component-base" width="80" height="50" rx="5"/>
+                                    <rect class="component-accent" x="70" y="20" width="20" height="10" fill="#e74c3c"/>
+                                </g>
+                                <g class="diagram-component" transform="translate(220, 150)" data-title="Sample Cuvette" data-desc="A small, transparent cell holding the particle suspension in the path of the laser beam.">
+                                    <rect class="component-base" width="60" height="100" rx="2"/>
+                                    <rect class="component-detail" x="10" y="10" width="40" height="80" fill="#aed6f1"/>
+                                </g>
+                                <g class="diagram-component" transform="translate(450, 100)" data-title="Detector" data-desc="A sensitive photon detector positioned at a specific angle (e.g., 90°) to measure the scattered light intensity.">
+                                    <rect class="component-base" width="100" height="50" rx="5"/>
+                                    <path class="component-accent" d="M0 25 L 20 10 V 40 Z" />
+                                </g>
+                                <g class="diagram-component" transform="translate(450, 255)" data-title="Correlator" data-desc="A digital signal processor that analyzes the rapid fluctuations in light intensity to generate a correlation function.">
+                                    <rect class="component-base" width="100" height="50" rx="5"/>
+                                    <path class="component-detail" d="M10 40 Q 20 10, 30 25 T 50 25" stroke-width="3" fill="none"/>
+                                    <path class="component-accent" d="M60 40 Q 70 10, 80 25 T 100 25" stroke-width="3" fill="none"/>
+                                </g>
+                                <g class="diagram-component" transform="translate(620, 255)" data-title="Computer" data-desc="Applies algorithms to the correlation function to calculate the particle size distribution and other key parameters.">
+                                    <rect class="component-base" width="80" height="70" rx="5" />
+                                    <rect class="component-detail" x="10" y="10" width="60" height="40" rx="3" fill="#2c3e50" />
+                                    <path class="component-accent" d="M20 40 V 30 H 30 V 40 H 40 V 20 H 50 V 40" stroke-width="4" fill="none" />
+                                </g>
+                            </svg>
+                        </div>
+                        <h3>Applications in Pharmacy</h3>
+                        <ul>
+                            <li><b>Nanomedicine Development:</b> Characterizing the size of nanoparticles, liposomes, and drug delivery systems.</li>
+                            <li><b>Formulation Stability:</b> Monitoring for particle aggregation or changes in size over time in suspensions and emulsions.</li>
+                            <li><b>Quality Control:</b> Ensuring batch-to-batch consistency of injectable products and sterile preparations.</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-content">
+                        <h3>Watch a Professional Demo</h3>
+                        <iframe src="https://www.youtube.com/embed/Kp2qPsPp0Hs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <a href="psa_simulator.html" class="btn">🚀 Launch PSA Simulator</a>
+                        <img src="psa-sim.png" alt="PSA Simulator Preview" class="simulator-screenshot">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 SimuPharma | Developed by Pranav & Piyush, Pravara Rural College of Pharmacy</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="diagram_script.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About SimuPharma</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <svg viewBox="0 0 450 60" xmlns="http://www.w3.org/2000/svg">
+                    <style>
+                        .beaker-icon, .simu-text, .pharma-text {
+                            opacity: 0;
+                            animation: fade-in 0.5s ease-out forwards;
+                        }
+                        .simu-text {
+                            font-family: 'Poppins', sans-serif; font-size: 40px; font-weight: 600;
+                            stroke: url(#logoGradient); stroke-width: 1.5;
+                            stroke-dasharray: 600; stroke-dashoffset: 600;
+                            fill-opacity: 0;
+                            animation: draw-text 2s ease-in-out forwards 0.7s, fade-in 0.5s ease-out forwards 0.5s;
+                        }
+                        .pharma-text {
+                            font-family: 'Poppins', sans-serif; font-size: 40px; font-weight: 600;
+                            stroke: url(#logoGradient); stroke-width: 1.5;
+                            stroke-dasharray: 800; stroke-dashoffset: 800;
+                            fill-opacity: 0;
+                            animation: draw-text 2s ease-in-out forwards 1.2s, fade-in 0.5s ease-out forwards 1s;
+                        }
+                        .beaker-bubble {
+                            animation: bubble-rise 2.5s ease-in-out infinite forwards 0.5s;
+                        }
+
+                        @keyframes fade-in { to { opacity: 1; } }
+                        @keyframes draw-text {
+                            50% { fill-opacity: 0; }
+                            100% {
+                                stroke-dashoffset: 0;
+                                fill-opacity: 1;
+                            }
+                        }
+                        @keyframes bubble-rise {
+                            0% { transform: translateY(0); opacity: 1; }
+                            100% { transform: translateY(-20px); opacity: 0; }
+                        }
+                    </style>
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#007BFF" />
+                            <stop offset="100%" stop-color="#6F42C1" />
+                        </linearGradient>
+                    </defs>
+                    <g class="beaker-icon" transform="translate(0, 5)">
+                        <path d="M 10 0 L 10 45 C 10 50, 50 50, 50 45 L 50 0 Z" stroke="url(#logoGradient)" stroke-width="2" fill-opacity="0.1" fill="url(#logoGradient)"/>
+                        <path d="M 5 0 H 55" stroke="url(#logoGradient)" stroke-width="3" stroke-linecap="round"/>
+                        <circle class="beaker-bubble" cx="30" cy="40" r="3" fill="#fff"/>
+                    </g>
+                    <text class="simu-text" x="70" y="45" fill="url(#logoGradient)">Simu</text>
+                    <text class="pharma-text" x="190" y="45" fill="url(#logoGradient)">Pharma</text>
+                </svg>
+            </a>
+         <nav>
+    <ul>
+        <li>
+            <a href="index.html">
+                <span style="font-size: 1.5em; line-height: 1;">🏠</span>
+                <span>Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="about.html">
+                <span style="font-size: 1.5em; line-height: 1;">ℹ️</span>
+                <span>About</span>
+            </a>
+        </li>
+        <li>
+            <a href="instruments.html">
+                <span style="font-size: 1.5em; line-height: 1;">⚗️</span>
+                <span>Instruments</span>
+            </a>
+        </li>
+        <li>
+            <a href="quiz.html">
+                <span style="font-size: 1.5em; line-height: 1;">❓</span>
+                <span>Quiz Zone</span>
+            </a>
+        </li>
+        <li>
+            <a href="contact.html">
+                <span style="font-size: 1.5em; line-height: 1;">📧</span>
+                <span>Contact</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2>About the Project</h2>
+                <p>This platform was created to bridge the gap between theoretical knowledge and practical application in pharmaceutical studies.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon-header">
+                    <lord-icon
+                        src="https://cdn.lordicon.com/surcxhka.json"
+                        trigger="loop"
+                        delay="2000"
+                        colors="primary:#e83a30,secondary:#6c757d"
+                        style="width:80px;height:80px">
+                    </lord-icon>
+                </div>
+                <h3>Problem Statement</h3>
+                <p>Advanced pharmaceutical instruments like HPLC, NMR, and Mass Spectrometers are incredibly expensive and require specialized maintenance. Consequently, many educational institutions have limited units, restricting hands-on access for students. This often leaves students with purely theoretical knowledge, unable to visualize the operational workflow of these critical tools.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon-header">
+                    <lord-icon
+                        src="https://cdn.lordicon.com/dflvdonr.json"
+                        trigger="loop"
+                        delay="2000"
+                        colors="primary:#28a745,secondary:#6c757d"
+                        style="width:80px;height:80px">
+                    </lord-icon>
+                </div>
+                <h3>Our Objective</h3>
+                <p>The primary objective of SimuPharma is to democratize learning by providing a free, accessible, and interactive virtual platform. We aim to:</p>
+                <ul>
+                    <li>Provide clear, concise information on the principles and workings of major pharmaceutical instruments.</li>
+                    <li>Offer visual aids like diagrams, animations, and videos to enhance understanding.</li>
+                    <li>Create simple, web-based simulators that mimic the basic operations of these machines.</li>
+                    <li>Reinforce learning through interactive quizzes and assessments.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-icon-header">
+                    <lord-icon
+                        src="https://cdn.lordicon.com/jfloowar.json"
+                        trigger="loop"
+                        delay="2000"
+                        colors="primary:#007bff,secondary:#6f42c1"
+                        style="width:80px;height:80px">
+                    </lord-icon>
+                </div>
+                <h3>Scope & Future Expansion</h3>
+                <p>Currently, the platform focuses on foundational instruments like HPLC, FTIR, and Gas Chromatography. Our future plans include:</p>
+                <ul>
+                    <li>Adding more instruments such as NMR, Mass Spectrometry, and Dissolution Apparatus.</li>
+                    <li>Developing more complex and detailed simulations with variable parameters.</li>
+                    <li>Creating a "Virtual Experiment" module where students can analyze sample data.</li>
+                    <li>Translating content into multiple languages to reach a global audience.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SimuPharma | Developed by Pranav & Piyush, PRCOP</p>
+        </div>
+    </footer>
+</body>
+</html>

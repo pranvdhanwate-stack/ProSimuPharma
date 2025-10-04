@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polarimeter Simulator - SimuPharma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="polarimeter_style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
+    <script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <svg viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
+                    <style>.simu-text{font-family:'Poppins',sans-serif;font-size:40px;font-weight:600;fill:none;stroke:#007bff;stroke-width:1.5;stroke-dasharray:600;stroke-dashoffset:600;animation:draw-text 3s ease-in-out forwards}.pharma-text{font-family:'Poppins',sans-serif;font-size:40px;font-weight:600;fill:none;stroke:#6f42c1;stroke-width:1.5;stroke-dasharray:800;stroke-dashoffset:800;animation:draw-text 3s ease-in-out forwards .5s}.glow{opacity:0;animation:pulse-glow 4s ease-in-out infinite 3s}@keyframes draw-text{to{stroke-dashoffset:0;fill:currentColor}}@keyframes pulse-glow{0%,100%{opacity:0}50%{opacity:.8}}</style>
+                    <defs><linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#007BFF"/><stop offset="100%" stop-color="#6F42C1"/></linearGradient><filter id="glow-effect"><feGaussianBlur stdDeviation="3.5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+                    <g class="glow" filter="url(#glow-effect)"><text class="simu-text" x="10" y="45" fill="url(#logoGradient)">Simu</text><text class="pharma-text" x="130" y="45" fill="url(#logoGradient)">Pharma</text></g>
+                    <text class="simu-text" x="10" y="45" stroke="#007BFF" fill="#007BFF">Simu</text><text class="pharma-text" x="130" y="45" stroke="#6F42C1" fill="#6F42C1">Pharma</text>
+                </svg>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="instruments.html">Instruments</a></li>
+                    <li><a href="quiz.html">Quiz Zone</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="advanced-sim-main">
+        <div class="polarimeter-main-container">
+            <div class="controls-card">
+                <div class="card-header">
+                    <h2>Polarimeter Control</h2>
+                </div>
+                <div class="card-body">
+                    <div class="control-group" id="tour-step-1">
+                        <label for="sampleSelect">Select Chiral Compound</label>
+                        <select id="sampleSelect">
+                            </select>
+                    </div>
+                    <hr>
+                    <button id="analyzeButton" class="sim-button">Run Analysis</button>
+                    <button id="tutorialBtn" class="sim-button" style="background-color:#9b59b6;">🎓 Start Tutorial</button>
+                    <hr>
+                    <div id="result-panel">
+                        <p>Specific Rotation [α]</p>
+                        <span id="result-value">+0.0°</span>
+                        <p id="result-conclusion"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-card" id="tour-step-2">
+                <div class="card-header">
+                    <h2>Live View</h2>
+                </div>
+                <div class="card-body">
+                    <div class="simulation-view">
+                        <div id="molecule-container">
+                            <div id="molecule-viewer"></div>
+                            <div id="structure-info-panel">
+                                <div id="structure-2d-viewer">
+                                    <img id="structure-2d-img" src="" alt="2D Structure">
+                                </div>
+                                <div id="info-text">
+                                    <h4 id="molecule-name"></h4>
+                                    <p>Formula: <strong id="molecule-formula"></strong></p>
+                                    <p>Mol. Weight: <strong id="molecule-weight"></strong></p>
+                                    <a id="pubchem-link" href="#" target="_blank">View on PubChem ↗</a>
+                                 </div>
+                            </div>
+                        </div>
+                        <svg id="polarimeter-animation-svg" viewBox="0 0 500 250">
+                            <defs>
+                                <mask id="beam-mask">
+                                    <rect id="beam-mask-rect" x="105" y="0" width="0" height="250" fill="white" />
+                                </mask>
+                            </defs>
+                            <circle cx="40" cy="125" r="15" fill="#4a5568" />
+                            <rect x="100" y="25" width="10" height="200" rx="2" fill="#2c3e50" />
+                            <path d="M 105 30 L 105 220" class="polarizer-grid" stroke-width="1.5" />
+                            <rect x="150" y="100" width="200" height="50" rx="5" class="sample-tube" />
+                            <g id="analyzer-group" style="transform-origin: 395px 125px;">
+                                <rect x="390" y="25" width="10" height="200" rx="2" fill="#2c3e50" />
+                                <path d="M 395 30 L 395 220" class="polarizer-grid" stroke-width="1.5" />
+                            </g>
+                            <circle cx="450" cy="125" r="15" fill="#4a5568" />
+
+                            <rect id="light-beam" x="105" y="75" width="290" height="100" mask="url(#beam-mask)" />
+                            
+                            <text class="svg-label" id="label-source" x="40" y="160">Source</text>
+                            <text class="svg-label" id="label-polarizer" x="105" y="240">Polarizer</text>
+                            <text class="svg-label" id="label-sample" x="250" y="90">Sample</text>
+                            <text class="svg-label" id="label-analyzer" x="395" y="15">Analyzer</text>
+                            <text class="svg-label" id="label-detector" x="450" y="160">Detector</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SimuPharma | Developed by Pranav & Piyush, PRCOP</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
+    <script src="polarimeter_script.js"></script>
+</body>
+</html>

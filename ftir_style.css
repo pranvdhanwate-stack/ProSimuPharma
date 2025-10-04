@@ -1,0 +1,106 @@
+:root {
+    --primary-glow: #00aeff;
+    --background-dark: #1a202c;
+    --card-dark: #2d3748;
+    --border-dark: #4a5568;
+    --text-primary: #e2e8f0;
+    --text-secondary: #a0aec0;
+    --font-body: 'Roboto', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+}
+.advanced-sim-main {
+    background-color: var(--background-dark);
+    padding: 2.5rem 1rem;
+}
+.main-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.simulator-card, .controls-card {
+    background-color: var(--card-dark);
+    border-radius: 8px;
+    border: 1px solid var(--border-dark);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    color: var(--text-primary);
+    width: 100%;
+}
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0,0,0,0.2);
+    padding: 15px 25px;
+    border-bottom: 1px solid var(--border-dark);
+}
+.card-header h1, .card-header h2 { margin: 0; font-size: 1.2em; color: var(--text-primary); }
+.live-readouts strong { color: var(--primary-glow); }
+.card-body { padding: 25px; position: relative; }
+.simulator-card .card-body { height: 450px; }
+canvas { background-color: #000; border: 1px solid var(--border-dark); }
+.control-group { margin-bottom: 20px; }
+label { display: block; margin-bottom: 8px; font-size: 0.9em; color: var(--text-secondary); }
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-dark);
+    background-color: var(--background-dark);
+    color: var(--text-primary);
+    font-size: 1em;
+    box-sizing: border-box;
+}
+.sim-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 10px;
+}
+#backgroundScanBtn { background-color: #3498db; }
+#sampleScanBtn { background-color: #27ae60; }
+#overlayBtn { background-color: #f39c12; margin-top: 10px; }
+#tutorialBtn { background-color: #9b59b6; }
+.sim-button:disabled { background-color: #4a5568; cursor: not-allowed; opacity: 0.5; }
+hr { border: none; border-top: 1px solid var(--border-dark); margin: 25px 0; }
+
+#peak-tooltip {
+    position: absolute;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: var(--text-primary);
+    border: 1px solid var(--primary-glow);
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    pointer-events: none;
+    transform: translateY(-100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    text-align: center;
+}
+#peak-tooltip strong {
+    color: var(--primary-glow);
+    display: block;
+}
+
+@media (min-width: 992px) {
+    .main-container {
+        flex-direction: row;
+    }
+    .simulator-card {
+        width: 800px;
+    }
+    .controls-card {
+        width: 300px;
+    }
+}
